@@ -58,7 +58,7 @@ Bonus ponctuels : meets en Suisse romande (micro-trottoir "ta voiture, combien t
 
 - **Annonce de saison** : vidéo "Je me donne jusqu'au [date] pour…" + épinglée en haut du profil.
 - **Numéroter** : "Épisode 4/20" en texte à l'écran → les gens veulent la suite et regardent les précédents.
-- **Cliffhanger** à la fin : "Le prochain canton, c.est celui que personne ne connaît… jeudi" / "Vous avez voté : on part au Tessin".
+- **Cliffhanger** à la fin : "Le prochain canton, c'est celui que personne ne connaît… jeudi" / "Vous avez voté : on part au Tessin".
 - **Teasing en story 24–48 h avant** : sondage ("Elle passe l'expertise ? oui/non"), compte à rebours Instagram (sticker), photo floue du prochain spot.
 - **Faire voter la communauté** : choix des jantes, de la couleur, du prochain col → ils deviennent acteurs = fidélité.
 - **Playlists / séries** : playlist TikTok par série, highlights Instagram par série.
