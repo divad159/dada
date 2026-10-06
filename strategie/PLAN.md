@@ -36,6 +36,8 @@ Règle d'or retenue partout : **les fiches techniques seules ne marchent pas** �
 
 > **"Une Mazda3 MPS, zéro budget de prépa, et toute la Suisse à découvrir — je te montre les routes, la vraie vie avec cette voiture, et ce qu'elle coûte."**
 
+**La voiture** : suspension pneumatique Air Lift, jantes Japan Racing JR3, capot noir, bande pare-soleil → style stance/show. **Plan signature** à garder dans chaque épisode : arrivée au spot + « air out » (la voiture se pose au sol) devant le paysage.
+
 ⚠️ Mise à jour : **pas d'argent à mettre dans des modifs** pour l'instant. La puissance n'est pas le sujet. Le contenu repose sur les routes, la vraie vie avec la voiture et ta personnalité, et ça coûte surtout de l'essence.
 
 Pourquoi c'est fort :
