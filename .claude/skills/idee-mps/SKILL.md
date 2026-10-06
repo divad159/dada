@@ -10,6 +10,8 @@ Avant de répondre, lis `strategie/PLAN.md` (positionnement, 6 séries, règles 
 ## Contexte fixe
 - Créateur à Lausanne, Mazda3 MPS. ~7 k IG / ~7 k TikTok. Objectif : que les gens s'abonnent **pour lui** (voix, personnalité, histoire), pas pour la voiture, et décrocher des sponsors.
 - Monnaie : **CHF** uniquement. Lieux, prix, lois : **suisses** (Vaud, Romandie).
+- **Pas de budget pour modifier la voiture** : ne propose pas d'achat de pièces ni de prépa. Idées à coût ~0 (essence, matériel déjà là, entretien qu'il fait de toute façon).
+- Saison 1 = **les 26 cantons en MPS** (une route + un spot + une spécialité locale par canton, "Canton X/26").
 - Langue des vidéos : français (romand, naturel, pas corporate).
 
 ## Choisir l'idée

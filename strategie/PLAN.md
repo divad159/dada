@@ -34,7 +34,9 @@ Règle d'or retenue partout : **les fiches techniques seules ne marchent pas** �
 
 ## 4. Ton positionnement
 
-> **"Je garde une Mazda3 MPS vivante (et de plus en plus forte) en Suisse — et je te montre tout : les galères, les prix, les routes."**
+> **"Une Mazda3 MPS, zéro budget de prépa, et toute la Suisse à découvrir — je te montre les routes, la vraie vie avec cette voiture, et ce qu'elle coûte."**
+
+⚠️ Mise à jour : **pas d'argent à mettre dans des modifs** pour l'instant. La puissance n'est pas le sujet. Le contenu repose sur les routes, la vraie vie avec la voiture et ta personnalité, et ça coûte surtout de l'essence.
 
 Pourquoi c'est fort :
 - La MPS a une **réputation** (moteur MZR 2.3 DISI turbo, K04, couple qui tire le volant, bielles, chaîne/VVT, support moteur, calamine) → plein de sujets "vrai/faux", "elle va casser ?".
@@ -43,8 +45,8 @@ Pourquoi c'est fort :
 
 ## 5. Les 6 séries (piliers)
 
-1. **"Saison 1 : Objectif ___"** (le fil rouge) — un but chiffré et une date. Ex. : *"MPS fiable à 330 ch, expertisée et sur circuit à Dijon-Prenois avant juin"*. Chaque étape = un épisode numéroté. C'est ÇA qui crée l'attente.
-2. **"Ce que ça coûte vraiment"** — facture réelle en CHF à l'écran (pièce, main-d'œuvre, expertise, assurance, pneus, essence). Énorme en partages/enregistrements.
+1. **"Saison 1 : les 26 cantons en MPS"** (le fil rouge) — une route, un spot et une spécialité locale par canton, épisodes numérotés "Canton X/26". Pas de modif nécessaire : juste de l'essence (plusieurs cantons par sortie). C'est ÇA qui crée l'attente ("c'est quand mon canton ?").
+2. **"Ce que ça coûte vraiment"** — les vraies dépenses en CHF pour *rouler* une MPS (assurance, impôt auto vaudois, pneus, essence, service, expertise). Énorme en partages/enregistrements.
 3. **"Tuner en Suisse"** — ce qui passe/ne passe pas à l'expertise, papiers, contrôles. Humour + utile.
 4. **"Les cols"** — un col par épisode, plans cinématiques, son du moteur, petite info locale. **Toujours aux limitations** (voir §9).
 5. **"MPS vs …"** — contre la Golf GTI, Civic Type R, Focus ST/RS, Mégane RS d'un pote, ou contre une voiture absurde. Ça te fait rencontrer d'autres créateurs = collabs.
@@ -56,8 +58,8 @@ Bonus ponctuels : meets en Suisse romande (micro-trottoir "ta voiture, combien t
 
 - **Annonce de saison** : vidéo "Je me donne jusqu'au [date] pour…" + épinglée en haut du profil.
 - **Numéroter** : "Épisode 4/20" en texte à l'écran → les gens veulent la suite et regardent les précédents.
-- **Cliffhanger** à la fin : "Le colis est arrivé… je l'ouvre jeudi" / "Le dyno annonce… (suite épisode 5)".
-- **Teasing en story 24–48 h avant** : sondage ("Elle passe l'expertise ? oui/non"), compte à rebours Instagram (sticker), photo floue de la pièce.
+- **Cliffhanger** à la fin : "Le prochain canton, c.est celui que personne ne connaît… jeudi" / "Vous avez voté : on part au Tessin".
+- **Teasing en story 24–48 h avant** : sondage ("Elle passe l'expertise ? oui/non"), compte à rebours Instagram (sticker), photo floue du prochain spot.
 - **Faire voter la communauté** : choix des jantes, de la couleur, du prochain col → ils deviennent acteurs = fidélité.
 - **Playlists / séries** : playlist TikTok par série, highlights Instagram par série.
 - **Canal de diffusion Instagram** ("Le garage") : coulisses, prix, avant-premières. Tes vrais fans s'y inscrivent — et c'est une preuve pour les marques.
@@ -77,7 +79,7 @@ Bonus ponctuels : meets en Suisse romande (micro-trottoir "ta voiture, combien t
 ## 8. Sponsoring : la route réaliste
 
 **Étape 1 (mois 1–2) — Devenir "sponsorisable"**
-- Bio claire : "Mazda3 MPS 🇨🇭 | Saison 1 : 330 ch & circuit avant juin | Lausanne". Email de contact.
+- Bio claire : "Mazda3 MPS 🇨🇭 | Saison 1 : les 26 cantons | Lausanne". Email de contact.
 - Taguer **naturellement** les marques des pièces/produits que tu utilises déjà (beaucoup de premiers deals viennent d'un manager qui a vu des tags réguliers).
 - Mesurer : taux d'engagement, % d'audience suisse/francophone, vues moyennes par Reel.
 
@@ -87,13 +89,14 @@ Bonus ponctuels : meets en Suisse romande (micro-trottoir "ta voiture, combien t
   1. **Locaux** : garages/préparateurs vaudois, detailing, carrossiers/wrap, pneus, centre d'expertise privé, circuits/journées piste, auto-écoles de pilotage.
   2. **Spécialistes Mazda / FWD turbo** : CorkSport (spécialiste MPS), Cobb, Forge Motorsport, Mishimoto, Milltek, Turbosmart, BC Racing…
   3. **Lifestyle auto** : produits detailing, huiles, plaquettes, dashcams, vêtements.
-  4. **Gros** (plus tard) : Mazda Suisse, manufacturiers pneus, assurances, Swiss distributeurs.
+  4. **Tourisme / route** (colle parfaitement à la série 26 cantons) : offices du tourisme cantonaux, hôtels et restos de col, stations-service, dashcams, apps de navigation/routes.
+  5. **Gros** (plus tard) : Mazda Suisse, manufacturiers pneus, assurances, Swiss distributeurs.
 - Commencer par du **produit contre contenu**, puis négocier du payé dès que tu peux montrer des résultats.
 
 **Ordres de grandeur (à prendre avec prudence)** : à ~7–10 k abonnés, un Reel payé se situe souvent entre **CHF 100 et 500**, plus si l'engagement et l'audience locale sont forts. Les Reels se payent ~1,5–2× un post photo. Les marques aiment aujourd'hui les micro-créateurs parce que leur engagement est bien meilleur que celui des gros comptes.
 
 **Le pitch (email ou DM, court)** :
-> Salut [prénom], je suis [toi], je fais une série "Saison 1 : 330 ch & circuit" sur ma Mazda3 MPS en Suisse (7 k IG / 7 k TikTok, ~X vues moyennes, audience 70 % suisse). J'utilise déjà [produit] et j'aimerais l'intégrer dans l'épisode [X] où je [action concrète]. Media kit en pièce jointe. Partant pour en parler ?
+> Salut [prénom], je suis [toi], je fais une série "Saison 1 : les 26 cantons en MPS" (7 k IG / 7 k TikTok, ~X vues moyennes, audience 70 % suisse). J'utilise déjà [produit] et j'aimerais l'intégrer dans l'épisode [canton X] où je [action concrète]. Media kit en pièce jointe. Partant pour en parler ?
 
 ## 9. Garde-fous suisses (non négociable)
 
@@ -112,10 +115,10 @@ Bonus ponctuels : meets en Suisse romande (micro-trottoir "ta voiture, combien t
 
 ## 11. Les 30 premiers jours
 
-- **Semaine 1** : nouvelle bio + photo de profil avec toi ; vidéo "Annonce Saison 1" (face cam) ; 1 "Ce que ça coûte" (le prix d'achat + tout ce que t'as mis dedans) ; 1 col.
-- **Semaine 2** : Épisode 1 (diagnostic de l'état actuel : points faibles MPS, ce qu'il faut faire) ; "Tuner en Suisse #1 : ce qui passe à l'expertise" ; réponse commentaire.
-- **Semaine 3** : Épisode 2 + teasing pièce ; 1 "MPS vs" avec un pote ; lancer le canal de diffusion.
-- **Semaine 4** : Épisode 3 (cliffhanger) ; bilan chiffres ; media kit v1 ; 5 premiers pitchs locaux.
+- **Semaine 1** : nouvelle bio + photo de profil avec toi ; vidéo "Annonce Saison 1 : 26 cantons" (face cam) ; 1 "Ce que ça coûte" (ce que te coûte la MPS par an) ; 1 col.
+- **Semaine 2** : Canton 1/26 (Vaud, à domicile) ; "Tuner en Suisse #1 : ce qui passe à l'expertise" ; réponse commentaire.
+- **Semaine 3** : Canton 2/26 + teasing du suivant (sondage) ; 1 "MPS vs" avec un pote ; lancer le canal de diffusion.
+- **Semaine 4** : Canton 3/26 (cliffhanger : "le prochain, c'est le plus dur") ; bilan chiffres ; media kit v1 ; 5 premiers pitchs locaux.
 
 ---
 *Pour une idée de vidéo à tout moment : demande à Claude "donne-moi une idée MPS" (skill `idee-mps`).*
