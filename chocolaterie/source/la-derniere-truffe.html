@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>La Dernière Truffe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Josefin+Sans:wght@600;700&family=Jost:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,700;1,700&display=block" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1d2534;
+    --gold: #e0bd72;
+    --gold-line: #c9a24f;
+    --wine: #8a2331;
+    --frame: #d9ccb4;
+    --cream: #faf6ee;
+    --ink: #1f1f1f;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { margin: 0; padding: 0; background: #fff; color: var(--ink); }
+  body { font-family: "EB Garamond", Georgia, serif; font-size: 11.6pt; line-height: 1.5; }
+
+  .page {
+    width: 210mm; height: 297mm; position: relative; overflow: hidden;
+    padding: 14mm 15mm 18mm; page-break-after: always; break-after: page;
+    display: flex; flex-direction: column;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  .eyebrow {
+    font-family: "Josefin Sans", sans-serif; font-weight: 700; color: var(--wine);
+    font-size: 8pt; letter-spacing: .32em; text-transform: uppercase; margin: 0 0 1mm;
+  }
+  h2 {
+    font-family: "Playfair Display", serif; font-weight: 700; color: var(--navy);
+    font-size: 18.5pt; line-height: 1.15; margin: 0 0 3mm;
+  }
+  .section { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+  .section + .section { margin-top: 6mm; }
+  .box { border: 1px solid var(--frame); padding: 6mm 7mm; flex: 1 1 auto; }
+  .box.quote { border-left: 5px solid var(--navy); }
+  .box p { margin: 0 0 2.6mm; }
+  .box ul, .box ol { margin: 0 0 2.6mm; padding-left: 6mm; }
+  .box li { margin-bottom: 1.2mm; }
+  .box ul ul { list-style: circle; margin-top: 1mm; }
+  .typed { font-family: "Jost", sans-serif; font-size: 9.8pt; line-height: 1.5; }
+  .tight { font-size: 10.8pt; line-height: 1.42; }
+  .tight .box p { margin-bottom: 2mm; }
+  .tight .section + .section { margin-top: 4mm; }
+  .stamped > div:not(.stamp) { padding-right: 44mm; }
+  .stamped > ul { padding-right: 0; }
+  .typed .head { font-size: 10.5pt; margin-bottom: 3mm; }
+  .typed ul { list-style: disc; }
+  .small { font-size: 9.5pt; color: #555; }
+  em.note { font-style: italic; }
+
+  .footer {
+    position: absolute; left: 15mm; right: 15mm; bottom: 7mm;
+    display: flex; justify-content: space-between;
+    font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: 7.5pt;
+    letter-spacing: .28em; color: #6b6b6b; text-transform: uppercase;
+  }
+
+  /* Couverture */
+  .cover { background: var(--navy); color: var(--gold); justify-content: center; align-items: center; padding: 0; }
+  .cover .frame { width: 182mm; border: 1px solid var(--gold-line); padding: 2mm; }
+  .cover .frame-in { border: 2px solid var(--gold-line); padding: 20mm 10mm 21mm; text-align: center; }
+  .cover .kicker { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: 8.5pt; letter-spacing: .32em; margin: 3mm 0 4mm; }
+  .cover h1 { font-family: "Playfair Display", serif; font-style: italic; font-weight: 700; font-size: 34pt; line-height: 1.12; margin: 0 0 5mm; color: var(--gold); }
+  .cover .tag { font-family: "EB Garamond", serif; font-style: italic; color: #f3ead8; font-size: 13pt; margin: 0 0 11mm; }
+  .cover .meta { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: 8.5pt; letter-spacing: .3em; }
+
+  /* Sommaire */
+  h3.wine { font-family: "Playfair Display", serif; font-style: italic; color: var(--wine); font-size: 15pt; margin: 3mm 0 1.5mm; }
+  .toc { display: grid; grid-template-columns: 1fr 1fr; column-gap: 6mm; font-size: 10.8pt; line-height: 1.45; }
+  .toc ol { margin: 0; padding-left: 7mm; }
+  .toc li { margin: 0 0 .6mm; }
+
+  /* Plan */
+  .plan-text { font-size: 11pt; }
+  .plan-text ul { margin-bottom: 2mm; }
+
+  /* Fiche manuscrite */
+  .card { border: 1px solid var(--gold-line); transform: rotate(-.35deg); font-style: italic; }
+  .card .title { font-style: normal; font-weight: 700; letter-spacing: .04em; font-size: 12pt; margin-bottom: 2mm; }
+  .card b { font-style: normal; }
+
+  /* Tampons */
+  .stamped { position: relative; }
+  .stamp {
+    position: absolute; right: 7mm; top: 5mm; transform: rotate(-6deg);
+    border: 2px solid var(--wine); color: var(--wine); padding: 1mm 3mm .6mm;
+    font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: 8pt;
+    letter-spacing: .2em; text-align: center; line-height: 1.35; text-transform: uppercase;
+  }
+
+  /* Télégramme */
+  .telegram {
+    border-left: 4px solid var(--wine); padding: 1.5mm 0 1.5mm 5mm; margin: 2mm 0 4mm;
+    font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: 9pt; letter-spacing: .14em; line-height: 1.75;
+  }
+  .handcard {
+    border-left: 4px solid var(--gold-line); padding: 1.5mm 0 1.5mm 5mm; margin: 2mm 0;
+    font-style: italic; font-size: 12.5pt; line-height: 1.55;
+  }
+
+  /* Tableaux */
+  table { width: 100%; border-collapse: collapse; font-size: 10.6pt; }
+  th {
+    font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: 7.4pt; letter-spacing: .14em;
+    text-align: left; text-transform: uppercase; padding: 0 2mm 1.6mm 0; border-bottom: 1.4px solid var(--ink); vertical-align: bottom;
+  }
+  td { padding: 2mm 2mm 2mm 0; border-bottom: 1px solid #ddd; vertical-align: top; }
+  .nowrap { white-space: nowrap; }
+
+  /* Feuille de réponses */
+  .answer { font-size: 11pt; }
+  .answer .line { border-bottom: 1px solid var(--ink); height: 8.5mm; }
+  .answer ol { padding-left: 6mm; margin: 4mm 0 0; }
+  .answer ol li { margin-bottom: 6mm; }
+  .answer ul { list-style: disc; padding-left: 6mm; }
+  .answer ul li { margin-bottom: 5mm; }
+
+  /* Indices */
+  .hints h4 { font-family: "EB Garamond", serif; color: var(--wine); font-weight: 700; font-size: 11.6pt; margin: 0 0 2mm; }
+  .hints ol { padding-left: 6mm; }
+  .fold {
+    border-top: 1px dashed #999; margin: 3mm 0 3mm; padding-top: .8mm; text-align: center;
+    font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: 7pt; letter-spacing: .25em; color: #777;
+  }
+</style>
+</head>
+<body>
+
+<!-- 1 · Couverture -->
+<section class="page cover">
+  <div class="frame"><div class="frame-in">
+    <svg width="150" height="150" viewBox="0 0 150 150" aria-hidden="true">
+      <defs>
+        <path id="arcTop" d="M 22 75 A 53 53 0 0 1 128 75"/>
+        <path id="arcBot" d="M 30 75 A 45 45 0 0 0 120 75"/>
+        <clipPath id="disc"><circle cx="75" cy="75" r="44"/></clipPath>
+      </defs>
+      <circle cx="75" cy="75" r="72" fill="none" stroke="#c9a24f" stroke-width="1.5"/>
+      <circle cx="75" cy="75" r="44" fill="#2d3850" stroke="#c9a24f" stroke-width="1.5"/>
+      <g clip-path="url(#disc)">
+        <polygon points="18,130 58,66 98,130" fill="#d8d0c2"/>
+        <polygon points="50,130 88,52 132,130" fill="#f1ead9"/>
+        <polygon points="88,52 132,130 104,130" fill="#cfc6b6"/>
+        <polygon points="58,66 48,84 54,82 60,88 66,80" fill="#ffffff" opacity=".85"/>
+        <circle cx="76" cy="95" r="6" fill="#8a2331"/>
+        <polygon points="72,97 80,97 82,112 70,112" fill="#8a2331"/>
+      </g>
+      <path d="M 100 48 a 8 8 0 1 0 8 10 a 6.5 6.5 0 1 1 -8 -10 z" fill="#f3ead8"/>
+      <circle cx="58" cy="52" r=".9" fill="#f3ead8"/><circle cx="66" cy="44" r=".7" fill="#f3ead8"/><circle cx="86" cy="60" r=".7" fill="#f3ead8"/>
+      <circle cx="16" cy="75" r="2.2" fill="#c9a24f"/><circle cx="134" cy="75" r="2.2" fill="#c9a24f"/>
+      <text font-family="Josefin Sans" font-weight="700" font-size="10" letter-spacing="3.2" fill="#e0bd72" text-anchor="middle"><textPath href="#arcTop" startOffset="50%">ALPINE ALIBI</textPath></text>
+      <text font-family="Josefin Sans" font-weight="700" font-size="6.2" letter-spacing="1.6" fill="#e0bd72" text-anchor="middle" dy="13"><textPath href="#arcBot" startOffset="50%">ENQUÊTE CRIMINELLE</textPath></text>
+    </svg>
+    <div class="kicker">ALPINE ALIBI · DOSSIER N° 1</div>
+    <h1>La Dernière Truffe<br>du chocolatier</h1>
+    <p class="tag">Zurich, novembre 1952. Un maître chocolatier, une truffe empoisonnée, quatre suspects.</p>
+    <div class="meta">1 À 4 JOUEURS · 60 À 90 MINUTES · DÈS 12 ANS</div>
+  </div></div>
+</section>
+
+<!-- 2 · Comment jouer -->
+<section class="page">
+  <div class="eyebrow">À lire en premier</div>
+  <h2>Comment jouer</h2>
+  <div class="section"><div class="box">
+    <p><b>Zurich, samedi 15 novembre 1952.</b></p>
+    <p>Hier soir, le plus célèbre chocolatier de Zurich est mort dans son propre atelier, une truffe à moitié mangée sur la soucoupe à côté de lui. L’inspecteur Arnold Meili, de la police municipale de Zurich, vous a transmis son dossier. Tout ce qu’il sait s’y trouve. Quelque part dans ces pages, le meurtrier a commis une erreur.</p>
+    <ul>
+      <li><b>Joueurs :</b> 1 à 4. Jouez seul, ou autour d’une table en vous disputant.</li>
+      <li><b>Durée :</b> 60 à 90 minutes.</li>
+      <li><b>Impression :</b> ce dossier (14 pages, A4 ; le noir et blanc suffit). Pour économiser l’encre, sautez la page 1, la couverture sombre. La feuille d’indices est la dernière page : pliez-la pour ne voir qu’un indice à la fois. La solution est un fichier séparé de 2 pages : ne l’imprimez pas avant d’avoir terminé.</li>
+      <li><b>Déroulement :</b> lisez tout, comparez, prenez des notes. Quand vous êtes sûrs de vous, remplissez la feuille de réponses, puis ouvrez la solution.</li>
+      <li><b>Règle du fair-play :</b> chaque réponse peut être prouvée grâce à ces documents. Inutile de deviner.</li>
+    </ul>
+    <p><i>Les documents originaux étaient en allemand et en français ; ils ont été traduits pour vous.</i></p>
+    <h3 class="wine">Votre dossier</h3>
+    <div class="toc">
+      <ol>
+        <li>Lettre de l’inspecteur Meili</li>
+        <li>Plan de la Confiserie E. Kessler</li>
+        <li>Rapport de constatations</li>
+        <li>Rapport du laboratoire</li>
+        <li>Déposition de Rosa Ammann, apprentie, 17 ans</li>
+        <li>Déposition de Lena Kessler, sa fille, 34 ans</li>
+        <li>Déposition d’Otto Frei, chef confiseur, 52 ans</li>
+        <li>Déposition de Jules Morand, chocolatier, Genève, 58 ans</li>
+        <li>Déposition de Werner Hug, comptable, 49 ans</li>
+        <li>Fiche de recette, écriture d’Emil Kessler</li>
+      </ol>
+      <ol start="11">
+        <li>Lettre du Dr Felix Amsler, Chocolaterie Sonnberg SA</li>
+        <li>Récépissé, Corporation des confiseurs de Zurich</li>
+        <li>Télégramme et carte de visite de Jules Morand</li>
+        <li>Bordereau de versement bancaire</li>
+        <li>Registre des poisons, Apotheke zur Goldenen Waage (extrait)</li>
+        <li>Bulletin de la Société entomologique de Zurich (extrait)</li>
+        <li>Livre de comptes de la boutique, octobre 1952 (extrait, tenu par W. Hug)</li>
+        <li>Facture du fournisseur</li>
+        <li>Lettre d’Ott &amp; Partner, fiduciaire</li>
+      </ol>
+    </div>
+    <p class="small" style="margin-top:3mm">En plus : une feuille de réponses et une feuille d’indices à la fin. La solution est un fichier séparé.</p>
+  </div></div>
+  <div class="footer"><span>Alpine Alibi · Dossier n° 1</span><span>2</span></div>
+</section>
+
+<!-- 3 · Doc 01 -->
+<section class="page">
+  <div class="eyebrow">Pièce à conviction · Doc 01</div>
+  <h2>Lettre de l’inspecteur Meili</h2>
+  <div class="section"><div class="box">
+    <p>POLICE MUNICIPALE DE ZURICH — POLICE CRIMINELLE<br>Samedi 15 novembre 1952</p>
+    <p>Cher détective,</p>
+    <p>Hier à 18 h 12, <b>Emil Kessler</b>, 66 ans, maître chocolatier, s’est effondré dans son atelier de la Kerzengasse 9 et il est mort quelques minutes plus tard. Le laboratoire a confirmé la présence de poison dans la truffe qu’il a mangée.</p>
+    <p>Ce matin, il devait présenter sa nouvelle création, <i>La Dernière</i>, au Prix du Cacao d’Or. Le jury n’a trouvé qu’une table vide et un ruban noir.</p>
+    <p>Quatre personnes avaient une raison de vouloir sa disparition, et toutes les quatre se trouvaient près de la boutique cet après-midi-là :</p>
+    <ul>
+      <li><b>Lena Kessler</b>, 34 ans, sa fille.</li>
+      <li><b>Otto Frei</b>, 52 ans, son chef confiseur.</li>
+      <li><b>Jules Morand</b>, 58 ans, son rival genevois.</li>
+      <li><b>Werner Hug</b>, 49 ans, son comptable.</li>
+    </ul>
+    <p>L’apprentie, <b>Rosa Ammann</b>, 17 ans, est notre principal témoin.</p>
+    <p>J’ai une journée avant que les journaux ne tranchent à ma place. Merci de répondre à trois questions :</p>
+    <ol>
+      <li><b>Qui</b> a empoisonné Emil Kessler ?</li>
+      <li><b>Comment</b> le meurtrier s’est-il assuré que Kessler, et personne d’autre, mangerait la truffe empoisonnée ?</li>
+      <li><b>Pourquoi</b> ?</li>
+    </ol>
+    <p>Et, si vous en avez le temps, une quatrième : <b>que cachait Otto Frei ?</b></p>
+    <p>Avec mes remerciements,<br><i>A. Meili</i>, inspecteur</p>
+    <p><i>P.-S. Mme Widmer, une cliente, a téléphoné trois fois pour me dire qu’elle n’est pas suspecte. Elle ne l’est pas. Si vous lui rendez visite, elle vous fera manger des florentins jusqu’à ce que vous soyez d’accord.</i></p>
+  </div></div>
+  <div class="footer"><span>Alpine Alibi · Dossier n° 1</span><span>3</span></div>
+</section>
+
+<!-- 4 · Doc 02 -->
+<section class="page">
+  <div class="eyebrow">Pièce à conviction · Doc 02</div>
+  <h2>Plan de la Confiserie E. Kessler</h2>
+  <div class="section"><div class="box plan-text" style="padding-top:3mm">
+    <svg viewBox="89 136 648 436" width="100%" style="display:block;margin:0 auto 3mm" font-family="Josefin Sans, sans-serif" aria-label="Plan du rez-de-chaussée">
+      <rect x="89" y="510" width="648" height="57" fill="#e9dfcc"/>
+      <text x="413" y="543" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="2.6" fill="#1d2534">KERZENGASSE (RUE)</text>
+      <rect x="107" y="152" width="610" height="358" fill="#faf6ee" stroke="#1d2534" stroke-width="3"/>
+      <line x1="412" y1="152" x2="412" y2="284" stroke="#1d2534" stroke-width="3"/>
+      <line x1="565" y1="152" x2="565" y2="284" stroke="#1d2534" stroke-width="3"/>
+      <line x1="107" y1="284" x2="717" y2="284" stroke="#1d2534" stroke-width="3"/>
+      <line x1="107" y1="334" x2="717" y2="334" stroke="#1d2534" stroke-width="3"/>
+      <!-- portes -->
+      <g stroke="#c9a24f" stroke-width="5">
+        <line x1="342" y1="284" x2="392" y2="284"/>
+        <line x1="473" y1="284" x2="513" y2="284"/>
+        <line x1="616" y1="284" x2="656" y2="284"/>
+        <line x1="565" y1="334" x2="616" y2="334"/>
+        <line x1="107" y1="293" x2="107" y2="326"/>
+        <line x1="383" y1="510" x2="443" y2="510"/>
+      </g>
+      <!-- fenêtre à barreaux -->
+      <line x1="150" y1="152" x2="226" y2="152" stroke="#1d2534" stroke-width="6" stroke-dasharray="4 3"/>
+      <text x="236" y="147" font-size="8.5" fill="#444">fenêtre (à barreaux)</text>
+      <!-- pièces -->
+      <g font-size="10" font-weight="700" letter-spacing="2" fill="#1d2534">
+        <text x="129" y="180">ATELIER</text>
+        <text x="433" y="180">RÉSERVE</text>
+        <text x="579" y="180">BUREAU DU</text>
+        <text x="579" y="196">COMPTABLE</text>
+        <text x="347" y="313" text-anchor="middle">COULOIR ARRIÈRE</text>
+        <text x="360" y="365" text-anchor="middle">BOUTIQUE</text>
+      </g>
+      <rect x="332" y="172" width="61" height="41" fill="#e9dfcc" stroke="#888"/>
+      <text x="362" y="196" text-anchor="middle" font-size="8.5" fill="#444">fourneau</text>
+      <rect x="169" y="203" width="142" height="34" fill="#ddd6cc" stroke="#888"/>
+      <text x="240" y="223" text-anchor="middle" font-size="8.5" fill="#444">plaque de marbre</text>
+      <text x="116" y="324" font-size="8.5" fill="#444">porte de la cour (fermée à clé)</text>
+      <text x="616" y="327" text-anchor="middle" font-size="8.5" fill="#444">porte derrière le comptoir</text>
+      <rect x="473" y="349" width="183" height="26" fill="#e0cfa5" stroke="#b39657"/>
+      <text x="564" y="366" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="2" fill="#1d2534">COMPTOIR</text>
+      <text x="537" y="391" text-anchor="middle" font-size="8.5" fill="#444">poste de Rosa</text>
+      <rect x="321" y="385" width="71" height="41" fill="#e3c27a" stroke="#b39657"/>
+      <text x="356" y="409" text-anchor="middle" font-size="7.5" fill="#444">table de</text>
+      <text x="356" y="418" text-anchor="middle" font-size="7.5" fill="#444">dégustation</text>
+      <rect x="149" y="457" width="121" height="13" fill="#f0e6d2" stroke="#c9a24f"/>
+      <text x="155" y="450" font-size="8.5" fill="#444">vitrine</text>
+      <rect x="534" y="457" width="122" height="13" fill="#f0e6d2" stroke="#c9a24f"/>
+      <text x="540" y="450" font-size="8.5" fill="#444">vitrine</text>
+      <text x="413" y="502" text-anchor="middle" font-size="8.5" fill="#444">porte d’entrée</text>
+      <rect x="664" y="341" width="44" height="87" fill="#faf6ee" stroke="#1d2534"/>
+      <g stroke="#1d2534" stroke-width=".8">
+        <line x1="664" y1="353" x2="708" y2="353"/><line x1="664" y1="365" x2="708" y2="365"/>
+        <line x1="664" y1="377" x2="708" y2="377"/><line x1="664" y1="389" x2="708" y2="389"/>
+        <line x1="664" y1="401" x2="708" y2="401"/><line x1="664" y1="413" x2="708" y2="413"/>
+      </g>
+      <text x="686" y="440" text-anchor="middle" font-size="8.5" fill="#444">escalier</text>
+      <text x="686" y="451" text-anchor="middle" font-size="8.5" fill="#444">vers le bureau</text>
+    </svg>
+    <p>Rez-de-chaussée, de la rue vers l’arrière :</p>
+    <ul>
+      <li><b>Porte d’entrée</b> (Kerzengasse) → <b>BOUTIQUE</b> : vitrines, table de dégustation, <b>comptoir</b> (poste de l’apprentie).</li>
+      <li><b>Escalier vers le bureau à l’étage</b> : dans la boutique, juste à côté du comptoir.</li>
+      <li><b>Porte derrière le comptoir</b> → <b>COULOIR ARRIÈRE</b>, qui mène à :
+        <ul>
+          <li><b>ATELIER</b> (plaque de marbre, fourneau avec bain-marie, étagères ; une fenêtre, <b>à barreaux</b>) ;</li>
+          <li><b>RÉSERVE</b> (boîtes, rubans, sucre) ;</li>
+          <li><b>BUREAU DU COMPTABLE</b> (petit bureau) ;</li>
+          <li><b>PORTE DE LA COUR</b> tout au fond (<b>toujours fermée à clé</b> ; deux clés : M. Kessler, M. Frei).</li>
+        </ul>
+      </li>
+    </ul>
+    <p>À l’étage : <b>BUREAU</b> (le bureau de M. Kessler, un canapé, le plateau à thé). Pas d’autre escalier.</p>
+    <p>Dans le quartier :</p>
+    <ul>
+      <li>Cabinet du Dr Brunner — juste à côté.</li>
+      <li>Zürcher Handwerkerbank, succursale de la Rennweg — 5 minutes à pied.</li>
+      <li>Maison des corporations, Limmatquai — 20 minutes à pied.</li>
+      <li>Apotheke zur Goldenen Waage — 10 minutes à pied.</li>
+    </ul>
+  </div></div>
+  <div class="footer"><span>Alpine Alibi · Dossier n° 1</span><span>4</span></div>
+</section>
+
+<!-- 5 · Docs 03 + 04 -->
+<section class="page">
+  <div class="section">
+    <div class="eyebrow">Pièce à conviction · Doc 03</div>
+    <h2>Rapport de constatations</h2>
+    <div class="box typed">
+      <div class="head">POLICE MUNICIPALE DE ZURICH — RAPPORT DE CONSTATATIONS · Vendredi 14 novembre 1952 · Agent K. Vogt</div>
+      <ul>
+        <li>18 h 14 — L’apprentie R. Ammann court chez le Dr Brunner (à côté). 18 h 25 — Le Dr Brunner constate le décès. 18 h 40 — Police sur place.</li>
+        <li><b>Atelier.</b> La victime au sol, près de la plaque de marbre. Une tasse à café brisée. Sur la plaque, une soucoupe avec <b>une demi-truffe</b> (coque noire, feuille d’or, une fissure sur le dessus, croquée par le milieu).</li>
+        <li>Sur l’étagère, un <b>coffret de présentation</b> noué d’un ruban doré, étiqueté « Cacao d’Or — Kessler » : <b>six</b> truffes identiques, intactes.</li>
+        <li>Sur le fourneau, un bain-marie de chocolat noir, encore mou. Un flacon d’huile d’amande amère sur l’étagère.</li>
+        <li><b>Sous la plaque</b>, au sol : <b>une fine épingle en acier noir, 38 mm, avec une toute petite tête.</b> M. Frei déclare que l’atelier n’utilise aucune épingle, d’aucune sorte.</li>
+        <li><b>Porte de la cour</b> : fermée à clé, aucun dégât. La clé de M. Kessler à son crochet dans l’atelier. La clé de M. Frei dans la poche de son manteau. <b>Fenêtre</b> : à barreaux, intacte.</li>
+        <li><b>Bureau à l’étage</b>, tiroir du bureau : une lettre d’Ott &amp; Partner (voir doc 19) et une fiche de recette (doc 10).</li>
+      </ul>
+    </div>
+  </div>
+  <div class="section">
+    <div class="eyebrow">Pièce à conviction · Doc 04</div>
+    <h2>Rapport du laboratoire</h2>
+    <div class="box typed">
+      <div class="head">LABORATOIRE CANTONAL, ZURICH · Rapport n° 52/1187 · 15 novembre 1952</div>
+      <ol>
+        <li><b>Demi-truffe (soucoupe) :</b> contient du <b>cyanure de potassium en cristaux</b>, enfoncé dans le <b>cœur de massepain</b>. Le cœur est parfumé à l’amande amère, qui a la même odeur que le cyanure et la masque.</li>
+        <li><b>Mode opératoire :</b> une petite ouverture (environ 3 mm) à la <b>base</b> de la truffe, rebouchée avec une goutte du même chocolat noir que celui du bain-marie. Deux minuscules trous dans la coque, comme si la truffe avait été tenue avec une épingle très fine.</li>
+        <li><b>La fissure :</b> elle part de la base et remonte jusqu’au sommet. Elle a été provoquée <b>par une pression venant du dessous</b>, une fois le chocolat durci. Ce n’est <b>pas</b> une fissure de refroidissement.</li>
+        <li><b>Les six truffes du coffret de présentation :</b> pas de poison.</li>
+        <li><b>Huile d’amande amère (flacon de l’atelier) :</b> concentration ordinaire de confiserie. Ce n’est pas la source du poison : le poison de la truffe est en <b>cristaux</b>, pas en huile.</li>
+        <li><b>Café (fragments de la tasse) :</b> pas de poison. <b>Somnifères (Véronal) ou mort-aux-rats :</b> aucune trace.</li>
+        <li>La mort est survenue quelques minutes après l’ingestion de la truffe.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="footer"><span>Alpine Alibi · Dossier n° 1</span><span>5</span></div>
+</section>
+
+<!-- 6 · Doc 05 -->
+<section class="page">
+  <div class="eyebrow">Pièce à conviction · Doc 05</div>
+  <h2>Déposition de Rosa Ammann, apprentie, 17 ans</h2>
+  <div class="section"><div class="box quote">
+    <p>« Je suis en deuxième année. Je sers au comptoir ; de là, je vois la porte d’entrée, l’escalier et la porte de l’arrière.</p>
+    <p>À quatre heures et demie, Otto a crié depuis l’arrière qu’il sortait par la cour. C’était tôt, et il n’a pas dit pourquoi. Mme Widmer est arrivée pour ses florentins du vendredi à peu près au même moment ; elle aime bien bavarder. Chaque vendredi elle demande lesquels sont les plus frais, et chaque vendredi elle achète le même petit sachet.</p>
+    <p>À cinq heures moins vingt, Mademoiselle Lena est arrivée avec un monsieur en manteau poil de chameau, et ils sont montés directement au bureau. Monsieur Kessler est sorti de l’atelier deux minutes plus tard en s’essuyant les mains, très joyeux, et il est monté les rejoindre.</p>
+    <p>Saint-Pierre a sonné cinq heures moins le quart juste au moment où Mme Widmer partait. Quelques minutes plus tard, Monsieur Hug est entré depuis la rue avec la sacoche de la banque, a dit bonsoir et il est passé à l’arrière. Le monsieur de Genève est entré juste derrière lui. Je ne savais pas qui c’était avant qu’il signe sa carte. Il est resté à mon comptoir tout le temps, à tout goûter et à se plaindre de tout. Je lui ai emballé deux boîtes avec du ruban ; ça a pris une éternité. Il a écrit une carte pour Monsieur Kessler et il est parti à cinq heures dix.</p>
+    <p>Juste après, Monsieur Hug est sorti de l’arrière avec une brassée de boîtes plates, il les a mises sous mon comptoir et il est retourné à son bureau.</p>
+    <p>À cinq heures et quart, Monsieur Kessler est descendu et il est allé à l’atelier. Un instant plus tard, je l’ai entendu s’écrier : “Il y en a une de fêlée ! Eh bien — celle-là, c’est pour moi ce soir.” Il mange toujours lui-même les pièces cassées, à la fermeture, avec son café. Il dit que ça porte malheur de jeter du chocolat, et encore plus malheur de vendre une pièce cassée.</p>
+    <p>Mademoiselle Lena et le monsieur sont partis à cinq heures vingt. Monsieur Hug a dit bonsoir à six heures moins vingt. Monsieur Kessler n’est plus jamais ressorti de l’atelier.</p>
+    <p>J’ai fermé à six heures et je lui ai apporté son café. La truffe fêlée était sur une soucoupe près de la plaque ; les six autres étaient déjà nouées dans la boîte du jury. Il a dit : “Laissons refroidir le café, et ensuite ma porte-bonheur.” Je suis retournée compter la caisse. Vers six heures dix, j’ai entendu la tasse se briser… »</p>
+  </div></div>
+  <div class="footer"><span>Alpine Alibi · Dossier n° 1</span><span>6</span></div>
+</section>
+
+<!-- 7 · Docs 06 + 07 -->
+<section class="page">
+  <div class="section">
+    <div class="eyebrow">Pièce à conviction · Doc 06</div>
+    <h2>Déposition de Lena Kessler, sa fille, 34 ans</h2>
+    <div class="box quote">
+      <p>« Oui, je voulais que Papa vende. La Chocolaterie Sonnberg avait fait une très bonne offre, et j’ai des dettes. Je n’en ai pas honte. Papa disait : pas avant samedi. Il voulait d’abord son dernier prix.</p>
+      <p>J’étais en haut avec le Dr Amsler, de Sonnberg, de cinq heures moins vingt à cinq heures vingt. Papa nous a rejoints. Il était d’une humeur merveilleuse. Il a dit qu’il venait de laisser sept pièces parfaites en bas, six pour le jury et une pour la chance.</p>
+      <p>Les pièces cassées ? Tout le monde dans la maison le sait. Papa ne vend jamais une pièce cassée et n’en jette jamais ; il la mange lui-même à la fermeture. Otto le sait, M. Hug le sait, Rosa le sait, je le sais. Il ne l’aurait jamais fait devant un client.</p>
+      <p>Le courrier ? C’est M. Hug qui l’ouvre, en entier, même les lettres marquées “Personnel”. Papa détestait la paperasse et le lui avait demandé, il y a des années.</p>
+      <p>Le Véronal est à moi. Je ne dors pas. Demandez au Dr Brunner, c’est lui qui me l’a prescrit. »</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="eyebrow">Pièce à conviction · Doc 07</div>
+    <h2>Déposition d’Otto Frei, chef confiseur, 52 ans</h2>
+    <div class="box quote">
+      <p>« Vingt-quatre ans que je travaille à cette plaque. <i>La Dernière</i>, c’est ma recette : mon massepain à l’amande amère, mon idée. On a commencé la fournée ensemble à deux heures et demie. À quatre heures et quart, les sept truffes étaient terminées, feuille d’or comprise, et refroidissaient sur le marbre.</p>
+      <p>Je suis parti à quatre heures et demie par la cour et j’ai fermé à clé derrière moi. J’avais mal à la tête. Je suis rentré directement chez moi ; ma logeuse vous dira que j’étais là à six heures moins le quart.</p>
+      <p>Oui, j’ai acheté de l’huile d’amande amère. Ça va dans le massepain. J’en achète depuis vingt ans.</p>
+      <p>Si je lui en voulais ? Il allait se présenter devant le jury et dire “ma création”. Vous ne lui en auriez pas voulu, vous ? Mais je ne l’ai pas tué. Sans Emil, la boutique revient à Lena, Lena vend, et moi je me retrouve à la rue. »</p>
+      <p><i>Note de l’inspecteur : après cet interrogatoire, un récépissé de la Corporation des confiseurs a été trouvé dans la poche du manteau de M. Frei (doc 12). M. Frei a ensuite refusé d’en dire davantage.</i></p>
+    </div>
+  </div>
+  <div class="footer"><span>Alpine Alibi · Dossier n° 1</span><span>7</span></div>
+</section>
+
+<!-- 8 · Docs 08 + 09 -->
+<section class="page">
+  <div class="section">
+    <div class="eyebrow">Pièce à conviction · Doc 08</div>
+    <h2>Déposition de Jules Morand, chocolatier, Genève, 58 ans</h2>
+    <div class="box quote">
+      <p>« Trente ans qu’Emil et moi, on se disputait chaque prix de ce pays. Il a gagné trois fois. Moi, jamais.</p>
+      <p>Le télégramme ? Pure fierté. J’ai une création à la noisette qui l’aurait battu. “Ton dernier prix” — oui, parce que je comptais bien gagner celui-ci ! Je ne voulais pas dire qu’il allait mourir.</p>
+      <p>Je suis venu voir sa fameuse boutique, pour la première fois de ma vie, la veille de la bataille. Au moment où j’entrais par la porte de la rue, un monsieur avec une sacoche de banque en cuir passait la porte derrière le comptoir. Je suis resté au comptoir avec la demoiselle tout le temps ; j’ai goûté, j’ai critiqué, elle m’a emballé deux boîtes. J’ai écrit une carte à Emil et je suis parti. Je ne suis jamais passé derrière ce comptoir. Demandez-lui.</p>
+      <p>Du poison ? Monsieur, je suis chocolatier, pas chimiste. Si j’avais voulu la mort d’Emil, je lui aurais simplement fait goûter ma création à la noisette. Il serait mort de jalousie. »</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="eyebrow">Pièce à conviction · Doc 09</div>
+    <h2>Déposition de Werner Hug, comptable, 49 ans</h2>
+    <div class="box quote">
+      <p>« Emil était mon ami depuis dix-huit ans. C’est un cauchemar.</p>
+      <p>Vendredi, comme tous les vendredis, j’ai porté la caisse de la semaine à la Handwerkerbank, sur la Rennweg. La file d’attente était épouvantable. J’ai été à la banque de cinq heures moins le quart jusqu’à presque cinq heures et quart. Ensuite je suis revenu, j’ai plié des boîtes à mon bureau, et je suis rentré chez moi à six heures moins vingt.</p>
+      <p>Je ne mets jamais les pieds dans l’atelier. Les confiseurs n’aiment pas qu’un comptable s’approche de leur chocolat.</p>
+      <p>Mon passe-temps ? Je collectionne les papillons. Surtout des alpins. C’est un crime, maintenant ?</p>
+      <p>Si Emil semblait inquiet ? Non. Pour le prix, peut-être. Il ne me parlait jamais d’argent ; il me laissait tout ça. »</p>
+    </div>
+  </div>
+  <div class="footer"><span>Alpine Alibi · Dossier n° 1</span><span>8</span></div>
+</section>
+
+<!-- 9 · Docs 10 + 11 -->
+<section class="page">
+  <div class="section">
+    <div class="eyebrow">Pièce à conviction · Doc 10</div>
+    <h2>Fiche de recette, écriture d’Emil Kessler</h2>
+    <div class="box card">
+      <div class="title">LA DERNIÈRE</div>
+      <ul>
+        <li>7 pièces : 6 pour le jury, 1 pour la chance.</li>
+        <li>Cœur : le massepain à l’amande amère d’Otto.</li>
+        <li>Coque : Ghana noir, tempéré à 31°. Feuille d’or.</li>
+      </ul>
+      <p>Notes :</p>
+      <ul>
+        <li>Sam. 9 h — Cacao d’Or. La présenter comme <b>« Kessler &amp; Frei ».</b> Le dire à Otto sam. matin — surprise !</li>
+        <li>Lun. 9 h — Dr Ott : le compte cacao. <b>Ne rien dire à W. d’ici là.</b></li>
+        <li>Après samedi : parler de Sonnberg avec Lena.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="section">
+    <div class="eyebrow">Pièce à conviction · Doc 11</div>
+    <h2>Lettre du Dr Felix Amsler, Chocolaterie Sonnberg SA</h2>
+    <div class="box">
+      <p>Hotel zum Silbernen Schwan, Zurich, le 15 novembre 1952</p>
+      <p>Monsieur l’Inspecteur,</p>
+      <p>Comme vous me l’avez demandé, voici mon récit de l’après-midi d’hier.</p>
+      <p>Je suis arrivé à la Confiserie Kessler avec Mlle Lena Kessler vers 16 h 40. Nous sommes montés directement au bureau. M. Kessler nous a rejoints quelques minutes plus tard. Au moment où il s’asseyait — les cloches de l’église sonnaient cinq heures moins le quart — il nous a dit, avec une grande fierté, qu’il venait de laisser « sept pièces parfaites en bas, six pour le jury et une pour la chance ».</p>
+      <p>Il a refusé notre offre, poliment, « jusqu’à après samedi ». Mlle Kessler a servi le thé. <b>Aucun de nous n’a quitté la pièce</b> avant que M. Kessler redescende, vers cinq heures et quart. Mlle Kessler et moi sommes partis ensemble quelques minutes plus tard et avons dîné à mon hôtel jusqu’à dix heures.</p>
+      <p>Veuillez agréer, Monsieur l’Inspecteur, mes salutations distinguées.<br><i>Dr F. Amsler</i></p>
+    </div>
+  </div>
+  <div class="footer"><span>Alpine Alibi · Dossier n° 1</span><span>9</span></div>
+</section>
+
+<!-- 10 · Docs 12 + 13 + 14 -->
+<section class="page">
+  <div class="section">
+    <div class="eyebrow">Pièce à conviction · Doc 12</div>
+    <h2>Récépissé, Corporation des confiseurs de Zurich</h2>
+    <div class="box typed stamped">
+      <div class="stamp">Reçu<br>14 nov 1952 · 17:05</div>
+      <div>CORPORATION DES CONFISEURS DE ZURICH · Maison des corporations, Limmatquai</div>
+      <div style="margin-bottom:2mm"><b>Registre de dépôt des recettes — Récépissé n° 1952/087</b></div>
+      <ul>
+        <li>Déposant : <b>Otto Frei</b>, maître confiseur</li>
+        <li>Titre : <i>« La Dernière » — truffe au massepain à l’amande amère</i></li>
+        <li>Enveloppe scellée reçue le : <b>14 novembre 1952 — 17 h 05</b></li>
+        <li>Préposé : H. Stucki</li>
+      </ul>
+      <i>Note du préposé : requérant en attente depuis 16 h 55. Le bureau ferme à 17 h 00 ; accepté par courtoisie.</i>
+    </div>
+  </div>
+  <div class="section" style="flex-grow:1.25">
+    <div class="eyebrow">Pièce à conviction · Doc 13</div>
+    <h2>Télégramme et carte de visite de Jules Morand</h2>
+    <div class="box">
+      <p><b>Télégramme</b>, reçu le mercredi 12 novembre 1952 :</p>
+      <div class="telegram">GENÈVE 12 NOV 1952 = KESSLER CONFISERIE KERZENGASSE 9 ZURICH = SAMEDI SERA TON DERNIER PRIX EMIL STOP J’APPORTE QUELQUE CHOSE QUE TU NE PEUX PAS BATTRE = MORAND</div>
+      <p><b>Carte de visite</b>, laissée au comptoir vendredi, écrite à 17 h 08 :</p>
+      <div class="handcard">Emil — trente ans de rivalité, et c’est aujourd’hui la première fois que je mets les pieds dans ta boutique. Ton apprentie est charmante. Tes pralinés sont hors de prix. À bientôt devant le jury. — J. M.</div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="eyebrow">Pièce à conviction · Doc 14</div>
+    <h2>Bordereau de versement bancaire</h2>
+    <div class="box typed stamped">
+      <div class="stamp">Handwerkerbank<br>14 nov 1952 · 16:25</div>
+      <div>ZÜRCHER HANDWERKERBANK · Succursale de la Rennweg</div>
+      <div style="margin-bottom:2mm"><i>Heures d’ouverture des guichets : du lundi au vendredi, 8 h 30–12 h 00 et 14 h 00–16 h 30.</i></div>
+      <ul>
+        <li>Compte : Confiserie E. Kessler</li>
+        <li>Versé par : <b>W. Hug</b></li>
+        <li>Montant : CHF 1’412.60</li>
+        <li>Timbre du guichet : <b>14 NOV 1952 · 16:25</b></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer"><span>Alpine Alibi · Dossier n° 1</span><span>10</span></div>
+</section>
+
+<!-- 11 · Docs 15 + 16 -->
+<section class="page">
+  <div class="section">
+    <div class="eyebrow">Pièce à conviction · Doc 15</div>
+    <h2>Registre des poisons, Apotheke zur Goldenen Waage (extrait)</h2>
+    <div class="box">
+      <p class="typed" style="font-style:italic;font-size:9.6pt">Selon la loi, chaque vente de poison est inscrite ici et signée par l’acheteur.</p>
+      <table>
+        <tr><th style="width:15%">Date</th><th style="width:33%">Acheteur</th><th style="width:22%">Produit</th><th style="width:12%">Quantité</th><th>Usage indiqué</th></tr>
+        <tr><td class="nowrap">21 oct. 1952</td><td>L. Kessler (ordonnance Dr Brunner)</td><td>Comprimés de Véronal</td><td>10</td><td>sommeil</td></tr>
+        <tr><td class="nowrap">28 oct. 1952</td><td>O. Frei</td><td>Huile d’amande amère</td><td>20 ml</td><td>confiserie</td></tr>
+        <tr><td class="nowrap">3 nov. 1952</td><td>Société entomologique de Zurich, <b>membre n° 112</b></td><td><b>Cyanure de potassium</b></td><td>15 g</td><td>flacons de chasse (insectes)</td></tr>
+        <tr><td class="nowrap">7 nov. 1952</td><td>B. Widmer</td><td>Mort-aux-rats (pâte au phosphore)</td><td>1 tube</td><td>cave</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="section">
+    <div class="eyebrow">Pièce à conviction · Doc 16</div>
+    <h2>Bulletin de la Société entomologique de Zurich (extrait)</h2>
+    <div class="box">
+      <p><b>SOCIÉTÉ ENTOMOLOGIQUE DE ZURICH — Bulletin de novembre 1952</b></p>
+      <ul>
+        <li><b>Prochaine conférence</b>, jeudi 20 novembre : <i>« Les Apollons de l’Engadine »</i>, par notre trésorier.</li>
+        <li><b>Le printemps arrive plus vite que vous ne le pensez.</b> Vérifiez dès maintenant vos flacons de chasse ; le cyanure perd de sa force pendant l’hiver. À la pharmacie, donnez votre <b>numéro de membre</b>, pas votre nom.</li>
+        <li><b>Épingles à insectes</b>, acier noir, 38 mm, toujours disponibles auprès du trésorier à 2 francs la centaine.</li>
+        <li><b>Comité :</b> Président : Dr A. Rüegg (n° 4) · Secrétaire : Mme M. Locher (n° 57) · Trésorier : <b>M. Werner Hug (n° 112)</b>.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer"><span>Alpine Alibi · Dossier n° 1</span><span>11</span></div>
+</section>
+
+<!-- 12 · Docs 17 + 18 + 19 -->
+<section class="page tight">
+  <div class="section">
+    <div class="eyebrow">Pièce à conviction · Doc 17</div>
+    <h2>Livre de comptes, octobre 1952 (extrait, tenu par W. Hug)</h2>
+    <div class="box" style="padding-top:5mm;padding-bottom:4mm">
+      <table>
+        <tr><th style="width:12%">Date</th><th style="width:30%">Fournisseur</th><th style="width:38%">Article</th><th>Montant (CHF)</th></tr>
+        <tr><td class="nowrap">3 oct.</td><td>Molkerei Seefeld</td><td>Crème, beurre</td><td>318.40</td></tr>
+        <tr><td class="nowrap">6 oct.</td><td>Zuckerhandel Oerlikon</td><td>Sucre, 200 kg</td><td>164.00</td></tr>
+        <tr><td class="nowrap">10 oct.</td><td><b>Rheinhafen Cacao Import AG</b></td><td><b>Fèves de cacao, Ghana, 400 kg</b> — facture n° 4471</td><td><b>2’640.00</b></td></tr>
+        <tr><td class="nowrap">15 oct.</td><td>Goldschläger Bern</td><td>Feuille d’or, 2 carnets</td><td>96.00</td></tr>
+        <tr><td class="nowrap">24 oct.</td><td>Kartonage Wiedikon</td><td>Boîtes, ruban</td><td>210.50</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="section" style="flex-grow:.7">
+    <div class="eyebrow">Pièce à conviction · Doc 18</div>
+    <h2>Facture du fournisseur</h2>
+    <div class="box typed stamped" style="padding-top:5mm;padding-bottom:4mm">
+      <div class="stamp" style="top:6mm">Payé</div>
+      <div>RHEINHAFEN CACAO IMPORT AG · Bâle</div>
+      <div><b>Facture n° 4471</b> · 8 octobre 1952</div>
+      <div style="margin-bottom:3mm">À : Confiserie E. Kessler, Kerzengasse 9, Zurich</div>
+      <table>
+        <tr><th style="width:36%">Article</th><th style="width:20%">Quantité</th><th style="width:20%">Prix au kg</th><th>Total</th></tr>
+        <tr><td>Fèves de cacao, Ghana</td><td><b>300 kg</b></td><td>CHF 6.60</td><td><b>CHF 1’980.00</b></td></tr>
+      </table>
+      <div style="margin-top:2.5mm"><i>Payé avec nos remerciements, le 10 octobre 1952.</i></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="eyebrow">Pièce à conviction · Doc 19</div>
+    <h2>Lettre d’Ott &amp; Partner, fiduciaire</h2>
+    <div class="box" style="padding-top:5mm;padding-bottom:4mm">
+      <p>OTT &amp; PARTNER · Fiduciaire · Zurich<br>Mercredi 12 novembre 1952<br><b>PERSONNEL</b> — M. Emil Kessler, Confiserie E. Kessler</p>
+      <p>Cher Monsieur Kessler,</p>
+      <p>Je vous remercie de votre lettre du 11 novembre. Comme vous le demandez, j’examinerai vos livres le <b>lundi 17 novembre à 9 heures</b>, en commençant par les achats de cacao. Je suis de votre avis : quand le coût du cacao augmente d’un tiers en deux ans alors que la production reste la même, cela demande une explication.</p>
+      <p>Comme vous le souhaitiez, j’ai marqué cette lettre « Personnel ».</p>
+      <p style="margin:0">Avec mes salutations distinguées,<br><i>Dr P. Ott</i></p>
+    </div>
+  </div>
+  <div class="footer"><span>Alpine Alibi · Dossier n° 1</span><span>12</span></div>
+</section>
+
+<!-- 13 · Feuille de réponses -->
+<section class="page">
+  <div class="eyebrow">À remplir avant d’ouvrir la solution</div>
+  <h2>Feuille de réponses</h2>
+  <div class="section"><div class="box answer">
+    <b>Détective(s) :</b>
+    <div class="line"></div>
+    <ol>
+      <li><b>Qui</b> a empoisonné Emil Kessler ?<div class="line"></div></li>
+      <li><b>Prouvez-le :</b> à quel moment le meurtrier a-t-il agi, et comment a-t-il atteint la truffe ?<div class="line"></div><div class="line"></div></li>
+      <li><b>Comment</b> le meurtrier s’est-il assuré que Kessler, et personne d’autre, mangerait la truffe empoisonnée ?<div class="line"></div><div class="line"></div></li>
+      <li><b>Pourquoi ?</b><div class="line"></div><div class="line"></div></li>
+      <li><i>Bonus :</i> <b>que cachait Otto Frei ?</b><div class="line"></div></li>
+    </ol>
+    <p style="margin-top:2mm">Pour chacun des trois autres suspects, une ligne : pourquoi ce n’était <b>pas</b> cette personne.</p>
+    <ul>
+      <li><b>Lena Kessler :</b><div class="line"></div></li>
+      <li><b>Otto Frei :</b><div class="line"></div></li>
+      <li><b>Jules Morand :</b><div class="line"></div></li>
+    </ul>
+  </div></div>
+  <div class="footer"><span>Alpine Alibi · Dossier n° 1</span><span>13</span></div>
+</section>
+
+<!-- 14 · Feuille d'indices -->
+<section class="page">
+  <div class="eyebrow">Pliez la page · Un indice à la fois</div>
+  <h2>Feuille d’indices</h2>
+  <div class="section"><div class="box hints">
+    <h4>Bloqués sur le « quand » ?</h4>
+    <ol>
+      <li>Deux documents vous disent à quel moment les truffes étaient encore toutes parfaites, et un autre vous dit quand la fissure a été remarquée pour la première fois. Regardez les docs 05, 06 et 11.</li>
+      <li>Entre 16 h 45 et 17 h 15, on ne pouvait atteindre l’atelier que par la porte derrière le comptoir de Rosa, ou par une porte de cour fermée à clé. Qui a franchi cette porte ?</li>
+    </ol>
+    <div class="fold">pliez ici</div>
+    <h4>Bloqués sur le « qui » ?</h4>
+    <ol start="3">
+      <li>Un suspect donne un alibi avec des heures précises. Comparez-le avec un document tamponné et avec les heures d’ouverture qui y sont imprimées.</li>
+      <li>La pharmacie n’a pas noté de nom pour le cyanure. Quel document transforme un numéro en nom ?</li>
+    </ol>
+    <div class="fold">pliez ici</div>
+    <h4>Bloqués sur le « pourquoi » ?</h4>
+    <ol start="5">
+      <li>Posez le doc 17 à côté du doc 18. Même numéro de facture. Même confiserie. Des chiffres différents.</li>
+      <li>Qui ouvre le courrier marqué « Personnel » ? Lisez maintenant le doc 19 et les dernières notes du doc 10.</li>
+    </ol>
+  </div></div>
+  <div class="footer"><span>Alpine Alibi · Dossier n° 1</span><span>14</span></div>
+</section>
+
+</body>
+</html>
